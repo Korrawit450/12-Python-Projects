@@ -1,0 +1,11 @@
+# string concatenation (aka how to put string)
+# youtuber = "Korrawit"
+
+# print("subscribe to " + youtuber)
+# print("subscribe to {}".format(youtuber))
+# print(f"subscribe to {youtuber}")
+
+adj = input("Adjective: ")
+
+madlib = f"Computer programming is so {adj}! It makes me so excited all the time because \
+    I love to {verb1}. Stay hydrated and {verb2} like you are {famous_person}!"
