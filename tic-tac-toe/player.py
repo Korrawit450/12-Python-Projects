@@ -50,3 +50,12 @@ def GeniusComputerPlayer(Player):
         else:
             # get the square based off the minimax algorithm
             square = self.minimax(game, self.letter)
+        return square
+    
+    def minimax(self, state, player):
+        max_player = self.letter # yourself!!
+        other_player = '0' if player == 'X' else 'X' # the other player.. so whatever letter is NO
+
+        # first, we want to check if the previous move is a winner
+        # this is our base case
+        if state.current_winner == other_player:
