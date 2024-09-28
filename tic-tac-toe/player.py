@@ -40,7 +40,7 @@ class HumanPlayer(Player):
                 print('Invalid square. Try again.')
         return val
 
-def GeniusComputerPlayer(Player):
+class GeniusComputerPlayer(Player):
     def __init__(self, letter):
         super().__init__(letter)
 
@@ -80,5 +80,16 @@ def GeniusComputerPlayer(Player):
             sim_score = self.minimax(state, other_player) # now, we alternate players
 
             # step 3: undo the move
+            state.board[possible_move] = ' '
+            state.current_winner = None
+            sim_score['position'] = possible_move # otherwise this will get messed up from the
 
             # step 4: update the dictionaries if necessary
+            if player == max_player: # we are trying to maximize the max_player
+                if sim_score['score'] > best['score']:
+                    best = sim_score # replace best
+            else: # but minimize the other player
+                if sim_score['score'] < best['score']:
+                    best = sim_score # replace best
+        
+        return best
